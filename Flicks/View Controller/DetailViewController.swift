@@ -30,7 +30,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(movie)
+        
         let title = movie["title"] as! String
         titleLabel.text = title
         
@@ -101,8 +101,10 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func onExit(_ sender: Any) {
-        self.dismiss(animated: true) {
-            
+        if let nav = self.navigationController {
+            nav.popViewController(animated: true)
+        } else {
+            self.dismiss(animated: true, completion: nil)
         }
     }
     override func didReceiveMemoryWarning() {

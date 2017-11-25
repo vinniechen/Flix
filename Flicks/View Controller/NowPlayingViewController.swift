@@ -93,6 +93,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         
         let detailViewController = segue.destination as! DetailViewController
         detailViewController.movie = movie
+        detailViewController.hidesBottomBarWhenPushed = true
         
     }
     
