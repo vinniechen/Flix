@@ -7,6 +7,9 @@
 //
 
 import UIKit
+enum MovieKeys {
+    static let backdropPath = "backdrop_path"
+}
 
 class DetailViewController: UIViewController {
     
@@ -17,6 +20,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var overviewLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var releaseLabel: UILabel!
+    @IBOutlet weak var recThirdImageView: UIImageView!
     
     var movie: [String: Any] = [:]
     var recs: [[String: Any]] = [[:]]
@@ -36,7 +42,14 @@ class DetailViewController: UIViewController {
         let votes = movie["vote_average"] as! NSNumber
         voteLabel.text = String(describing: votes) + "/10 🌟"
         
+        let releaseDate = movie["release_date"] as? String
+        releaseLabel.text = releaseDate
+        
         let baseURL = "https://image.tmdb.org/t/p/w500"
+        if let backdropURL = movie[MovieKeys.backdropPath] as? String {
+            let backURL = NSURL(string: baseURL + backdropURL)
+            backgroundImageView.af_setImage(withURL: backURL as! URL)
+        }
         if let posterURL = movie["poster_path"] as? String { // nil check
             let imageURL = NSURL(string: baseURL + posterURL)
             posterImageView.af_setImage(withURL: imageURL as! URL)
@@ -70,16 +83,20 @@ class DetailViewController: UIViewController {
     func loadRecImage() {
         let recL = self.recs[0] as [String: Any]
         let recR = self.recs[1] as [String: Any]
+        let recT = self.recs[2] as [String: Any]
         
         let posterPathL = recL["poster_path"] as! String
         let posterPathR = recR["poster_path"] as! String
-        
+        let posterPathT = recT["poster_path"] as! String
         
         let posterURL = URL(string: "https://image.tmdb.org/t/p/w500" + posterPathL)!
         recLeftImageView.af_setImage(withURL: posterURL)
         
         let posterURLR = URL(string: "https://image.tmdb.org/t/p/w500" + posterPathR)!
         recRightImageView.af_setImage(withURL: posterURLR)
+        
+        let posterURLT = URL(string: "https://image.tmdb.org/t/p/w500" + posterPathT)!
+        recThirdImageView.af_setImage(withURL: posterURLT)
 
     }
     
