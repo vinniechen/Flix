@@ -71,7 +71,6 @@ class DetailViewController: UIViewController {
                 print(error.localizedDescription)
             } else if let data = data {
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                print(dataDictionary)
                 self.recs = dataDictionary["results"] as! [[String: Any]]
                 self.loadRecImage()
                 

@@ -68,6 +68,18 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIC
         return movies.count
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        
+        let cell = sender as! UICollectionViewCell
+        let indexPath = collectionView.indexPath(for: cell)
+        let movie = movies[(indexPath?.row)!]
+        
+        let detailViewController = segue.destination as! DetailViewController
+        detailViewController.movie = movie
+        detailViewController.hidesBottomBarWhenPushed = true
+        
+    }
 
 }

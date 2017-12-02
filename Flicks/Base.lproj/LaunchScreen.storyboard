@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,24 +19,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1cl-Ry-AnN">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1cl-Ry-AnN">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.72369791670000005" green="0.040605009480000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="popcorn" translatesAutoresizingMaskIntoConstraints="NO" id="kLY-mc-SEk">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="popcorn" translatesAutoresizingMaskIntoConstraints="NO" id="kLY-mc-SEk">
                                 <rect key="frame" x="91" y="197" width="192" height="191"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="kLY-mc-SEk" secondAttribute="height" multiplier="192:191" id="SkA-9s-fpq"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FLIX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="luI-8C-cPm">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FLIX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="luI-8C-cPm">
                                 <rect key="frame" x="91" y="396" width="192" height="98"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="94"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="93"/>
                                 <color key="textColor" red="0.97364124770000005" green="1" blue="0.97953264600000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="luI-8C-cPm" firstAttribute="top" secondItem="kLY-mc-SEk" secondAttribute="bottom" constant="8" id="9aV-Ob-2hE"/>
+                            <constraint firstItem="luI-8C-cPm" firstAttribute="top" secondItem="kLY-mc-SEk" secondAttribute="bottom" constant="8" id="CWG-qH-GEt"/>
+                            <constraint firstItem="1cl-Ry-AnN" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="D99-Nr-s4A"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="luI-8C-cPm" secondAttribute="trailing" constant="92" id="ENx-6U-ZZf"/>
+                            <constraint firstItem="kLY-mc-SEk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="177" id="EON-hu-X7f"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="luI-8C-cPm" secondAttribute="bottom" constant="173" id="JwG-jM-ZyV"/>
+                            <constraint firstItem="kLY-mc-SEk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="177" id="KFk-36-YcO"/>
+                            <constraint firstItem="kLY-mc-SEk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="91" id="LNb-aY-Fhw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kLY-mc-SEk" secondAttribute="trailing" constant="92" id="OHu-bb-g0G"/>
+                            <constraint firstItem="1cl-Ry-AnN" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Txb-C7-dfV"/>
+                            <constraint firstItem="1cl-Ry-AnN" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="XyI-Rv-ceC"/>
+                            <constraint firstItem="luI-8C-cPm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="91" id="cZY-33-hsE"/>
+                            <constraint firstItem="1cl-Ry-AnN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dZS-ac-KDK"/>
+                            <constraint firstItem="kLY-mc-SEk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="91" id="l3C-Mc-B4X"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kLY-mc-SEk" secondAttribute="trailing" constant="92" id="oke-4h-j12"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
